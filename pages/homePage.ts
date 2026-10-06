@@ -23,4 +23,8 @@ export class homePage{
     async clickAcceptCookies(){
         await this.locators.COOKIES.click();
     }
+
+    async hoverOnNav(){
+        await this.locators.LEARN.hover();
+    }
 }

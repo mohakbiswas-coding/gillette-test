@@ -11,13 +11,19 @@ test.beforeAll(async() => {
   context = await browser.newContext();
   page = await context.newPage();
   home = new homePage(page);
+  await home.open();
 });
 
 test.afterAll(async() => {
   await browser.close();
 })
 
-test("Navigate to homepage and accept cookies", async() => {
-  await home.open();
-  await home.clickAcceptCookies();
+test("flow_1", async() => {
+  await test.step('navigate on homepage and click accept cookies', async() => {
+    await home.clickAcceptCookies();
+  });
+
+  await test.step('hover on the navbar items', async() => {
+    await home.hoverOnNav();
+  });
 });
